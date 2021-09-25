@@ -31,7 +31,7 @@ func api(w http.ResponseWriter, r *http.Request) {
 }
 func send(body string, email string, access_drop string) {
 	from := "tmushkaterova@gmail.com"
-	pass := "537003DOSAV"
+	pass := "537003SAOM"
 	to := email
 
 	msg := "From: " + from + "\n" +
