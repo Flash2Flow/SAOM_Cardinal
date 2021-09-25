@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"net/smtp"
@@ -23,15 +24,16 @@ func api(w http.ResponseWriter, r *http.Request) {
 	email := string(email_byte[:])
 	access_drop := string(access_drop_byte[:])
 	token := string(token_byte[:])
-
+	log.Print(email, access_drop, token)
 	if token == "ac01a9a846016b13e1249040c3bb1c3e" {
 		send("Перейдите по ссылке что бы сбросить пароль - http//site.com/drop.php?0c83f57c786a0b4a39efab23731c7ebc=%s&c1a8a39a96d32cac85fd7bca0d50830b=%s", email, access_drop)
+		fmt.Fprint(w, "StatusRequest: 201")
 	}
 
 }
 func send(body string, email string, access_drop string) {
 	from := "tmushkaterova@gmail.com"
-	pass := "537003SAOM"
+	pass := "537003DOSAV"
 	to := email
 
 	msg := "From: " + from + "\n" +
@@ -49,5 +51,5 @@ func send(body string, email string, access_drop string) {
 		return
 	}
 	log.Println("StatusRequest: 201")
-	log.Println("Sent to %s, ", to)
+	log.Println("Sent to, ", to)
 }
