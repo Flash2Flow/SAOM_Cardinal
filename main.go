@@ -27,13 +27,13 @@ func api(w http.ResponseWriter, r *http.Request) {
 	if token == "ac01a9a846016b13e1249040c3bb1c3e" {
 
 		from := "tmushkaterova@gmail.com"
-		pass := "537003Sa"
+		pass := "537003DOSAV"
 		to := email
 
 		msg := "From: " + from + "\n" +
 			"To: " + to + "\n" +
 			"Subject: SAOM ONLINE Drop Password\n\n" +
-			"Перейдите по ссылке что бы сбросить пароль - <a href='http://cs85079.tmweb.ru/drop.php?0c83f57c786a0b4a39efab23731c7ebc=" + email + "&c1a8a39a96d32cac85fd7bca0d50830b=" + access_drop + "'></a>"
+			"Перейдите по ссылке что бы сбросить пароль - <a href=" + "http://ch37276.tmweb.ru/drop.php?0c83f57c786a0b4a39efab23731c7ebc=" + email + "&c1a8a39a96d32cac85fd7bca0d50830b=" + access_drop + "></a>"
 
 		err := smtp.SendMail("smtp.gmail.com:587",
 			smtp.PlainAuth("", from, pass, "smtp.gmail.com"),
@@ -41,7 +41,6 @@ func api(w http.ResponseWriter, r *http.Request) {
 
 		if err != nil {
 			log.Println("StatusRequest: 401")
-			fmt.Fprint(w, "StatusRequest: 401")
 			log.Printf("smtp error: %s", err)
 			return
 		}
@@ -50,3 +49,4 @@ func api(w http.ResponseWriter, r *http.Request) {
 	}
 
 }
+
