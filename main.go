@@ -27,7 +27,7 @@ func api(w http.ResponseWriter, r *http.Request) {
 	if token == "ac01a9a846016b13e1249040c3bb1c3e" {
 
 		from := "tmushkaterova@gmail.com"
-		pass := "537003DOSAV"
+		pass := "537003TEst"
 		to := email
 
 		msg := "From: " + from + "\n" +
