@@ -35,6 +35,7 @@ func api(w http.ResponseWriter, r *http.Request) {
 		}
 
 		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("MSS", "Cardinal")
 		w.Write(js)
 		log.Print("Success: 201")
 	} else {
@@ -45,6 +46,7 @@ func api(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("MSS", "Cardinal")
 		w.Write(js)
 		log.Print("ErrAuth: 401")
 	}
