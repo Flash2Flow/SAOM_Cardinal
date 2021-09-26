@@ -37,7 +37,7 @@ func api(w http.ResponseWriter, r *http.Request) {
 		m.SetHeader("From", "tmushkaterova@gmail.com")
 		m.SetHeader("To", email)
 		m.SetHeader("Subject", "SAOM ONLINE Drop Password!")
-		m.SetBody("text/html", "Перейдите по ссылке что бы сбросить пароль - <a href='http://ch37276.tmweb.ru/drop.php?email="+email+"&access_drop="+access_drop+">Link</a>")
+		m.SetBody("text/html", "Перейдите по ссылке что бы сбросить пароль - <a href='http://ch37276.tmweb.ru/drop.php?email="+email+"&access_drop="+access_drop+"'>Link</a>")
 
 		d := gomail.NewPlainDialer("smtp.gmail.com", 587, "tmushkaterova@gmail.com", "537003DOsaV")
 		if err := d.DialAndSend(m); err != nil {
