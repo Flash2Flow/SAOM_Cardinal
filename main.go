@@ -37,7 +37,7 @@ func api(w http.ResponseWriter, r *http.Request) {
 	email := string(email_byte[:])
 	if token == "ac01a9a846016b13e1249040c3bb1c3e" {
 
-		db, err := sql.Open("mysql", "re-incarnation:537003ReIncar$Mailen@tcp(37.146.123.137:3306)/poplavok")
+		db, err := sql.Open("mysql", "ch37276_test:537003Test@tcp(185.114.247.92:3306)/ch37276_test")
 
 		if err != nil {
 			log.Print(err)
