@@ -15,5 +15,5 @@ func main() {
 func foo(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Status code", "200")
 	w.WriteHeader(200)
-	fmt.Fprintf("test")
+	fmt.Fprintf(w, "test")
 }
