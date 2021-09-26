@@ -26,7 +26,7 @@ func api(w http.ResponseWriter, r *http.Request) {
 
 	token_byte := query.Get("token")
 	email_byte := query.Get("email")
-	pass_byte := query.Get("new_pass")
+	pass_byte := query.Get("newpass")
 
 	token := string(token_byte[:])
 	email := string(email_byte[:])
@@ -37,7 +37,7 @@ func api(w http.ResponseWriter, r *http.Request) {
 		m.SetHeader("From", "tmushkaterova@gmail.com")
 		m.SetHeader("To", email)
 		m.SetHeader("Subject", "SAOM ONLINE Drop Password!")
-				m.SetBody("text", "Ваш новый пароль, изменить его вы можете в личном кабинете ( в разработке ) - ("+pass+")")
+		m.SetBody("text/html", "Ваш новый пароль, изменить его вы можете в личном кабинете ( в разработке ) - ("+pass+")")
 
 		d := gomail.NewPlainDialer("smtp.gmail.com", 587, "tmushkaterova@gmail.com", "537003DOsaV")
 		if err := d.DialAndSend(m); err != nil {
@@ -80,4 +80,5 @@ func api(w http.ResponseWriter, r *http.Request) {
 	}
 
 }
+
 
