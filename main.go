@@ -41,7 +41,17 @@ func api(w http.ResponseWriter, r *http.Request) {
 
 		d := gomail.NewPlainDialer("smtp.gmail.com", 587, "tmushkaterova@gmail.com", "537003DOsaV")
 		if err := d.DialAndSend(m); err != nil {
-			panic(err)
+			log.Print(err)
+			mss := Cardinal{"Internal Server Error", []string{"500"}}
+			js, err := json.Marshal(mss)
+			if err != nil {
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
+			}
+			w.Header().Set("Content-Type", "application/json")
+			w.Header().Set("MSS", "Cardinal")
+			w.Write(js)
+			log.Print("Internal Server Error: 500")
 		}
 
 		mss := Cardinal{"Success", []string{"201"}}
