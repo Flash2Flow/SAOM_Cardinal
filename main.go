@@ -19,7 +19,6 @@ func main() {
 }
 
 func foo(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(200)
 
 	profile := Profile{"Alex", []string{"snowboarding", "programming"}}
 
