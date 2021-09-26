@@ -3,7 +3,6 @@ package main
 import (
 	"net/http"
 		"os"	
-	"fmt"
 		"encoding/json"
 )
 
