@@ -3,8 +3,14 @@ package main
 import (
 	"net/http"
 		"os"	
-	"fmt"	
+	"fmt"
+		"encoding/json"
 )
+
+type Profile struct {
+	Name		string
+	Hobbies []string
+}
 
 func main() {
 		port := os.Getenv("PORT")
@@ -13,7 +19,16 @@ func main() {
 }
 
 func foo(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Status code", "200")
 	w.WriteHeader(200)
-	fmt.Fprintf(w, "test")
+
+	profile := Profile{"Alex", []string{"snowboarding", "programming"}}
+
+	js, err := json.Marshal(profile)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(js)
 }
