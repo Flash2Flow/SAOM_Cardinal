@@ -34,12 +34,12 @@ func api(w http.ResponseWriter, r *http.Request) {
 	if token == "ac01a9a846016b13e1249040c3bb1c3e" {
 
 		m := gomail.NewMessage()
-		m.SetHeader("From", "tmushkaterova@gmail.com")
+		m.SetHeader("From", "support@saom.online")
 		m.SetHeader("To", email)
 		m.SetHeader("Subject", "SAOM ONLINE Drop Password!")
 		m.SetBody("text/html", "Ваш новый пароль, изменить его вы можете в личном кабинете ( в разработке ) - ("+pass+")")
 
-		d := gomail.NewPlainDialer("smtp.gmail.com", 587, "tmushkaterova@gmail.com", "537003DOsaV")
+		d := gomail.NewPlainDialer("smtp.saom.online", 465, "support@saom.online", "QwertY654321")
 		if err := d.DialAndSend(m); err != nil {
 			log.Print(err)
 			mss := Cardinal{"Internal Server Error", []string{"500"}}
