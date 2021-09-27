@@ -39,7 +39,7 @@ func api(w http.ResponseWriter, r *http.Request) {
 		m.SetHeader("Subject", "SAOM ONLINE Drop Password!")
 		m.SetBody("text/html", "Ваш новый пароль, изменить его вы можете в личном кабинете ( в разработке ) - ("+pass+")")
 
-		d := gomail.NewPlainDialer("smtp.saom.online", 465, "support@saom.online", "QwertY654321")
+		d := gomail.NewPlainDialer("smtp.saom.online", 25, "support@saom.online", "QwertY654321")
 		if err := d.DialAndSend(m); err != nil {
 			log.Print(err)
 			mss := Cardinal{"Internal Server Error", []string{"500"}}
